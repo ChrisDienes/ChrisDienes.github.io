@@ -1,4 +1,4 @@
 name: Chris Dienes
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
-theme: slate
+theme: Slate
