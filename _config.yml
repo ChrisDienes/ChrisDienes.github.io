@@ -1,4 +1,6 @@
 name: Chris Dienes
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
-theme: Slate
+theme: jekyll-theme-slate
+title: Chris Dienes
+description: A place to put my code and thoughts...so I don't forget. 
