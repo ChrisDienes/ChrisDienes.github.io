@@ -2,21 +2,4 @@
 ---
 
 @import "{{ site.theme }}";
-#navigation {
-    width:100%;
-    background-color:gray;
-    color:green;
-    height:35px;
-    text-align:center;
-    padding-top:15px;
-}
-#navigation a {
-    font-size:14px;
-    padding-left:15px;
-    padding-right:15px;
-    color:black;
-    text-decoration:none;
-}
-#navigation a:hover {
-    color:blue;
-}
+
