@@ -11,10 +11,11 @@ body {
 #main_content_wrap{
      padding-bottom: 100px;
 }
-.navbar-inverse {
+.navbar-inverse, .navbar-header, .navbar-collapse, .collapse{
      background: #4b0082;
 }
 #holder {
     min-height: 100%;
     position:relative;
+    background: #f2f2f2; 
 }
