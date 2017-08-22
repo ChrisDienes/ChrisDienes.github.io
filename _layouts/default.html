@@ -23,19 +23,26 @@
           <nav class="navbar navbar-inverse navbar-fixed-top">
   		<div class="container-fluid">
     			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        				<span class="icon-bar"></span>
+       					 <span class="icon-bar"></span>
+        				<span class="icon-bar"></span> 
+     				 </button>
       				<a class="navbar-brand" href="/">{{ site.title | default: site.github.repository_name }}</a>
     			</div>
-    			<ul class="nav navbar-nav">
+			<div class="collapse navbar-collapse" id="myNavbar">
+    			    <ul class="nav navbar-nav">
       				<li><a href="/">Home</a></li>
       				<li><a href="/about">About</a></li>
      				<li><a href="/cv">CV</a></li>
       				<li><a href="/blog/">Posts</a></li>
-    			</ul>
-			<ul class="nav navbar-nav navbar-right">
+    			    </ul>
+			    <ul class="nav navbar-nav navbar-right">
       				<li><a href="/contact"><i class="fa fa-envelope-square" aria-hidden="true"></i>&nbsp; Contact</a></li>
       				<li><a href="https://github.com/ChrisDienes/"><i class="fa fa-github" aria-hidden="true"></i>&nbsp; GitHub</a></li>
     				<li><a href="https://chrisdienes.github.io/blog/atom.xml"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp; RSS</a></li>
-			</ul>
+			     </ul>
+			</div>
   		</div>
 	  </nav>
           <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
