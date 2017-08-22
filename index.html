@@ -13,22 +13,9 @@ title: Chris Dienes
     <header>
         <div class="title">
             <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <!--<h2><a href="{{ post.permalink | relative_url }}">{{ post.title }}</a></h2>-->
+	    <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
             <p>{{ post.description }}</p>
-   	    <ul class="actions">
-                <li><a href="{{ post.url }}" class="button big">Continue Reading</a></li>
-            </ul>
-        </div>
-
-        <div class="meta">
-            <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-
-            {% assign author_id = post.author | prepend: "/team/" | append: "/" %}
-			{% assign author = site.team | where: "url", author_id | first %}
-            <a href="{{ author.url }}" class="author">
-                <span class="name">{{ author.name }}</span>
-                <img src="{{ author.image | relative_url }}" alt="" />
-            </a>
+   	    <a href="{{ post.url }}" class="button big">Continue Reading</a>
         </div>
     </header>
 
