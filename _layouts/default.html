@@ -18,9 +18,9 @@
   <body>
    <div id="holder">
     <!-- HEADER -->
-    <div id="header_wrap" class="outer" style="height:100px;">
+    <div id="header_wrap" class="outer" style="height:50px;">
         <header class="inner">
-          <nav class="navbar navbar-inverse navbar-fixed-top">
+          <nav class="navbar navbar-inverse navbar-fixed-top" style="height:50px;">
   		<div class="container-fluid" style="background:#4b0082;">
     			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -45,13 +45,12 @@
 			</div>
   		</div>
 	  </nav>
-          <h2 id="project_tagline" style="font-size:1em;">{{ site.description | default: site.github.project_tagline }}</h2>
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer" style="border-top:none;border-bottom:none;">
-      <section id="main_content" class="inner">
+      <section id="main_content" class="inner" style="padding-top: 20px;">
         {{ content }}
       </section>
     </div>
