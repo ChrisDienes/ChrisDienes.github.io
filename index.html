@@ -13,11 +13,11 @@ title: Home
     <header>
         <div class="title">
             <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-	    <p>Date: <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+	    <p><strong>Date:</strong> <time class="published" datetime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
             <br>
-            Description: {{ post.description }}
+            <strong>Description:</strong> {{ post.description }}
 	    <br>
-	    Tags: {{ post.tags}}</p>
+	    <strong>Tags:</strong> {{ post.tags}}</p>
         </div>
     </header>
 
