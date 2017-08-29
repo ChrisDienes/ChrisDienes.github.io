@@ -61,10 +61,10 @@
                     <h2>{{ page.title }}</h2>
                     <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
                     <p>{{ page.description }}</p>
-		    <p>Tags: {{ post.tags}}</p>
+		    <p>Tags: {{ page.tags}}</p>
                 </div>
             </header>
-	    <span class="image featured"><img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="display: block; margin: 0 auto;" /></span>
+	    <span class="image featured"><img src="{{ page.image | relative_url }}" alt="{{ page.title }}" style="display: block; margin: 0 auto;" /></span>
             <!-- Content -->
             {{ content }}
             <!-- <footer>
