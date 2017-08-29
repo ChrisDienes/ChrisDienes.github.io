@@ -8,6 +8,6 @@ title: Posts
  
 <div style="margin:0 auto;width:75%;">
     {% for post in site.posts %}	    
-      <p><small><strong>{{ post.date | date: "%B %e, %Y" }}: &nbsp;<a href="{{ post.url }}">{{ post.title }}</a></strong> [Tags: {{post.tags}}] {{ post.description }}</p></small></p>			
+      <p><small><strong>{{ post.date | date: "%B %e, %Y" }}: &nbsp;<a href="{{ post.url }}">{{ post.title }}</a></strong> [<strong>Tags:</strong> {{post.tags}}] {{ post.description }}</p></small></p>			
     {% endfor %}
 </div>
