@@ -1,5 +1,5 @@
 ---
-layout: default_posts
+layout: default_post
 title: First Post
 date: 2017-08-17
 description: This is a test.
