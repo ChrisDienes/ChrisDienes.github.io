@@ -50,11 +50,11 @@
     </div>
 
     <!-- MAIN CONTENT -->
-    <div id="main">
-
+    <div id="main_content_wrap" class="outer" style="border-top:none;border-bottom:none;">
+      <section id="main_content" class="inner" style="padding-top: 20px;"	   
+       <div id="main">
         <!-- Post -->
         <article class="post">
-
             <!-- Header -->
             <header>
                 <div class="title">
@@ -63,12 +63,9 @@
                     <p>{{ page.description }}</p>
                 </div>
             </header>
-
             <span class="image featured"><img src="{{ page.image | relative_url }}" alt="" /></span>
-
             <!-- Content -->
             {{ content }}
-
             <footer>
                 <ul class="stats">
                     {% for tag in page.tags %}
@@ -82,6 +79,8 @@
             </footer>
         </article>
     </div>
+   </section>
+  </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer" style="height:100px;position:absolute;bottom:0;">
