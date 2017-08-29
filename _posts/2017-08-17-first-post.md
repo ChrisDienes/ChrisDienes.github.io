@@ -1,10 +1,21 @@
 ---
 layout: default_post
-title: First Post
+title: Your Game
 date: 2017-08-17
-description: This is a test.
-image: /images/first_post.svg
-tags: [Test, Placeholder]
+description: A birthday gift for my wife.
+image: /images/yourgame.png
+tags: [DIY Project, Games, WebDev]
 ---
 
-We'll see how this goes...
+I created a scavenger hunt for my wife's birthday this past year. The major hurdles were
+
+1. Planning her day. This included coordinating with friends and local businesses (donuts, golf, spa, lunch, library, movie, etc.).  
+2. Creating a static webpage to guide her experience. The application uses JavaScript to decode a series of clues.   
+3. Planting the clues. I placed an icon on her iPhone and hide several physical clues which are no longer active so don't think you can recreate the experience.
+
+I chose GitHub for my static hosting, which gave me the motivation to finally creating a public repository for my codes. A few months and repos later, I now have a place to blog about my DIY projects. Naturally, this is my first post.    
+
+To view the game click <a href="https://chrisdienes.github.io/YourGame/" target="_blank">here</a>.
+
+To view or fork my repo click <a href="https://github.com/ChrisDienes/YourGame" target="_blank">here</a>. Note: I used R for my offline encryption script.
+
