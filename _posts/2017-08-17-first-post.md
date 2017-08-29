@@ -7,7 +7,7 @@ image: /images/yourgame.png
 tags: [DIY Project, Games, WebDev]
 ---
 
-I created a scavenger hunt for my wife's birthday this past year. The major hurdles were
+I created a scavenger hunt for my wife's birthday this past year. The major hurdles were:
 
 1. Planning her day. This included coordinating with friends and local businesses (donuts, golf, spa, lunch, library, movie, etc.).  
 2. Creating a static webpage to guide her experience. The application uses JavaScript to decode a series of clues.   
