@@ -60,11 +60,11 @@
                 <div class="title">
                     <h2>{{ page.title }}</h2>
 		    <p>
-                       Date: <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                       <strong>Date:</strong> <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
 		       <br>
-                       Description: {{ page.description }}
+                       <strong>Description:</strong> {{ page.description }}
 		       <br>
-		       Tags: {{ page.tags}}
+		       <strong>Tags:</strong> {{ page.tags}}
 		    </p>
                 </div>
             </header>
