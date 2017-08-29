@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <meta name="description" content="{{ site.title | default: site.github.repository_name }} : {{ site.description | default: site.github.project_tagline }}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <script src="/myCustom.js"></script> -->
+{% seo %}
+  </head>
+	
+  <body>
+   <div id="holder">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer" style="height:50px;">
+        <header class="inner">
+          <nav class="navbar navbar-inverse navbar-fixed-top" style="height:50px;">
+  		<div class="container-fluid" style="background:#4b0082;">
+    			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        				<span class="icon-bar"></span>
+       					 <span class="icon-bar"></span>
+        				<span class="icon-bar"></span> 
+     				 </button>
+      				<a class="navbar-brand" href="/">{{ site.title | default: site.github.repository_name }}</a>
+    			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+    			    <ul class="nav navbar-nav">
+      				<li><a href="/">Home</a></li>
+      				<li><a href="/about">About</a></li>
+     				<li><a href="/cv">CV</a></li>
+      				<li><a href="/blog/">Posts</a></li>
+    			    </ul>
+			    <ul class="nav navbar-nav navbar-right">
+      				<li><a href="/contact"><i class="fa fa-envelope-square" aria-hidden="true"></i>&nbsp; Contact</a></li>
+      				<li><a href="https://github.com/ChrisDienes/"><i class="fa fa-github" aria-hidden="true"></i>&nbsp; GitHub</a></li>
+				<li><a href="https://www.linkedin.com/in/christopher-dienes-43002510a"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp; LinkedIn</a></li>
+    				<li><a href="https://chrisdienes.github.io/blog/atom.xml"><i class="fa fa-rss-square" aria-hidden="true"></i>&nbsp; RSS</a></li>
+			    </ul>
+			</div>
+  		</div>
+	  </nav>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main">
+
+        <!-- Post -->
+        <article class="post">
+
+            <!-- Header -->
+            <header>
+                <div class="title">
+                    <h2>{{ page.title }}</h2>
+                    <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                    <p>{{ page.description }}</p>
+                </div>
+            </header>
+
+            <span class="image featured"><img src="{{ page.image | relative_url }}" alt="" /></span>
+
+            <!-- Content -->
+            {{ content }}
+
+            <footer>
+                <ul class="stats">
+                    {% for tag in page.tags %}
+                    <li><a href="#">{{ tag }}</a></li>
+                    {% endfor %}
+<!-- NOT IMPLEMENTED YET
+                <li><a href="#" class="icon fa-heart">28</a></li>
+                <li><a href="#" class="icon fa-comment">128</a></li>
+-->
+                </ul>
+            </footer>
+        </article>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer" style="height:100px;position:absolute;bottom:0;">
+      <footer class="inner">
+        {% if site.github.is_project_page %}
+        <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        {% endif %}
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+   </div>
+
+    {% if site.google_analytics %}
+      <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '{{ site.google_analytics }}', 'auto');
+        ga('send', 'pageview');
+      </script>
+    {% endif %}
+	  
+    <!-- LOAD js scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>
