@@ -59,12 +59,13 @@
             <header>
                 <div class="title">
                     <h2>{{ page.title }}</h2>
-                    <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-                    <p>Description: {{ page.description }}
+		    <p>
+                       Date: <time class="published" datetime="{{ page.date }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+		       <br>
+                       Description: {{ page.description }}
 		       <br>
 		       Tags: {{ page.tags}}
 		    </p>
-		    <p>Tags: {{ page.tags}}</p>
                 </div>
             </header>
 	    <span class="image featured"><img src="{{ page.image | relative_url }}" alt="{{ page.title }}" style="display: block; margin: 0 auto;" /></span>
