@@ -65,7 +65,7 @@
                        <strong>Description:</strong> {{ page.description }}
 		       <br>
 		       <strong>Tags:</strong> {% for tag in page.tags %}
-			<a href="https://chrisdienes.github.io/blog/#{{ tag | slugify }}"> {{ tag }} </a>
+			<a href="https://chrisdienes.github.io/blog/#{{ tag | slugify }}" class="post-tag"> {{ tag }} </a>
 	                {% endfor %} 
 		    </p>
                 </div>
