@@ -12,7 +12,7 @@ title: Posts
 	      </strong> {{ post.description }}&nbsp;
 	      <strong>Tags:</strong> 
 	      {% for tag in post.tags %}
-			<a href="#{{ tag | slugify }}"> {{ tag }} </a>
+			<a href="#{{ tag | slugify }}" class="post-tag"> {{ tag }} </a>
 	      {% endfor %} 
       </p>			
     {% endfor %}
@@ -57,7 +57,7 @@ The purpose of this snippet is to list all your posts posted with a certain tag.
 =======================
 {% endcomment %}
 {% for tag in tags %}
-	<h2 id="{{ tag | slugify }}" style="color:#4b0082;">{{ tag }}</h2>
+	<h2 id="{{ tag | slugify }}" style="color:#4b0082;" class="post-tag">{{ tag }}</h2>
 	<ul>
 	 {% for post in site.posts %}
 		 {% if post.tags contains tag %}
