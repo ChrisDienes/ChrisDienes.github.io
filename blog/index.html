@@ -21,7 +21,6 @@ title: Posts
 <div class="blurb" style="text-align:center;">
 	<h1>Tags</h1>
 </div><!-- /.blurb -->
-<div style="margin:0 auto;width:90%;">
 {% comment %}
 =======================
 The following part extracts all the tags from your posts and sort tags, so that you do not need to manually collect your tags to a place.
@@ -33,7 +32,6 @@ The following part extracts all the tags from your posts and sort tags, so that 
 	{% assign rawtags = rawtags | append:ttags %}
 {% endfor %}
 {% assign rawtags = rawtags | split:'|' | sort %}
-
 {% comment %}
 =======================
 The following part removes dulpicated tags and invalid tags like blank tag.
@@ -49,13 +47,23 @@ The following part removes dulpicated tags and invalid tags like blank tag.
 			{% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
 		{% endunless %}
 	{% endif %}
-{% endfor %}
-<div>	
+{% endfor %}	
 {% comment %}
+{% comment %}
+=======================
+The purpose of this snippet is to list all the tags you have in your site.
+=======================
+{% endcomment %}
+<div class="blurb" style="text-align:center;">
+{% for tag in tags %}
+	<a href="#{{ tag | slugify }}" class="post-tag"> {{ tag }} </a>
+{% endfor %}
+</div>
 =======================
 The purpose of this snippet is to list all your posts posted with a certain tag.
 =======================
 {% endcomment %}
+<div style="margin:0 auto;width:90%;">
 {% for tag in tags %}
 	<h2 id="{{ tag | slugify }}" style="color:#4b0082;">{{ tag }}</h2>
 	<ul>
