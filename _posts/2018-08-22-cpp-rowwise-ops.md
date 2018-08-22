@@ -120,7 +120,7 @@ df[1:(N/4),] <- 0
 df[(N/4 + 1):(N/2),] <- NA
 ``` 
 
-**Step 3.** Run three the competing approaches:
+**Step 3.** Run the three competing approaches:
 
 ```r
 ### ---------------------------------------------- ###
