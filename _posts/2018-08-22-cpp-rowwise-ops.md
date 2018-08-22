@@ -7,18 +7,6 @@ image: /images/rcpp_blog.svg
 tags: [C++, R]
 ---
 
-<style>
-  #test1 {
-    width:100%;
-  }
-  #test2 {
-    width:100%;
-  }
-  table {
-    margin: 0 auto; /* or margin: 0 auto 0 auto */
-  }
-</style>
-
 ### Summary
 Data analysis code often falls into the ad hoc class: a one-time use which is destined for the graveyard of forgotten files that are slowly decomposing your computer’s available storage space. But some code falls into the reusable class; a category which requires thoughtful considerations of robustness, maintenance, and performance. Recently I encountered a performance bottleneck while productionalizing a particular workflow. The original code was written in R and contained several time consuming operations. Specifically, data preprocessing involved ingesting a large but narrow data set (rows: 60+ million, columns: around 15), and then flagging any row which contained either all zeros or all NAs. Loop-ing and apply-ing over rows can be a very time consuming task within R. Fortunately, 1) C++ is very efficient at these operations, and 2) the Rcpp package provides a simple way to integrate your C++ code within your R workflow. For a more detailed Rcpp tutorial see <a href="http://adv-r.had.co.nz/Rcpp.html">here</a>.
  
@@ -26,7 +14,7 @@ Data analysis code often falls into the ad hoc class: a one-time use which is de
 Below I compare the performance of three different row-wise paradigms: an R `for` loop, an R `apply`, and a C++ `for` loop integrated into R using Rcpp. The row-wise task is to find all row index values which fail the zero/NA check (described above), where our narrow data set has 15 columns and N rows. Here N is varied by factors of 10 from 6K up to 60 million. The number of rows with all zeros or all NAs are both set to 25% of the number of rows N. Note: Other approaches involving column-wise looping, recoding, and summarizing using row sums could also be explored, but the intent of this post is to provide a template for performing row-wise operations and comparing performance of row-wise alternatives.   
 The below table contains the run times (in seconds) from one experiment per setting. Of course we ought to run the experiment multiple times to account for system variability but “ain’t nobody got time for that”. The “DNR” label stands for did not run. 
 
-<div id="test1">
+<center>
 
 | Rows                | Cpp Time       |  Apply Time   | Loop Time |
 | :-----------------: | :--------------:  | :---------------: | :------------: |
@@ -36,11 +24,11 @@ The below table contains the run times (in seconds) from one experiment per sett
 | 6,000,000        | 1.136             | 35.517             |  DNR           |
 | 60,000,000      |10.321            | 397.695           | DNR            |
 
-</div>
+</center>
 
 The below table contains the ratio of run time relative to the Cpp run time. Interestingly, Cpp is many times more efficient than the other two methods but is logically constructed in the same way as the R for loop. 
 
-<div id="test2">
+<center>
 
 | Rows                | Cpp Ratio       |  Apply Ratio  | Loop Ratio |
 | :----------------: | :--------------: | :---------------: | :------------: |
@@ -50,7 +38,7 @@ The below table contains the ratio of run time relative to the Cpp run time. Int
 | 6,000,000        | 1.0             | 31.3             |  DNR           |
 | 60,000,000      |1.0              | 38.5             | DNR            |
 
-</div>
+</center>
 
 ### Code     
 
