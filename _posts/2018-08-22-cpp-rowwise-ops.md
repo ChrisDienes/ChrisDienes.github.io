@@ -8,9 +8,11 @@ tags: [C++, R]
 ---
 
 <style>
-  #test {
+  #test1 {
     width:100%;
-    height:100%;
+  }
+  #test2 {
+    width:100%;
   }
   table {
     margin: 0 auto; /* or margin: 0 auto 0 auto */
