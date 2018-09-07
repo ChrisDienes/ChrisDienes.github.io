@@ -35,7 +35,7 @@ vapply_time <- as.numeric(difftime(Sys.time(),stm, units = "secs"))
  
 ### New Results
 
-The below times and time ratios were obtained using Microsoft R Open 3.4.3 (which is the R version tied to the use case). Once again, I only did one run per treatment <a href=https://www.youtube.com/watch?v=bFEoMO0pc7k">because…</a>.  
+The below times and time ratios were obtained using Microsoft R Open 3.4.3 (which is the R version tied to the use case). Once again, I only did one run per treatment <a href="https://www.youtube.com/watch?v=bFEoMO0pc7k">because…</a>.  
 
 | Rows                | Cpp Time       |  Apply Time       | Vapply Time  | R Loop (Apply) Time | R Loop (C++) Time | 
 | :-----------------: | :------------: | :---------------: | :----------: | :-----------------: | :---------------: |
