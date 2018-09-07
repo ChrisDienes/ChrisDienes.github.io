@@ -1,6 +1,6 @@
 ---
 layout: default_post
-title: (Follow-up) Using C++ to Speedup Row-wise Operations
+title: Follow-up to Using C++ to Speedup Row-wise Operations
 date: 2018-09-07
 description: More on the R package Rcpp, code performance, and for loops.  
 image: /images/rcpp_blog2.svg
