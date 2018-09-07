@@ -2,7 +2,7 @@
 layout: default_post
 title: (Follow-up) Using C++ to Speedup Row-wise Operations
 date: 2018-09-07
-description: More on: The R package Rcpp is a great tool for improving your code’s performance.  
+description: More on the R package Rcpp, code performance, and for loops.  
 image: /images/rcpp_blog2.svg
 tags: [C++, R]
 ---
