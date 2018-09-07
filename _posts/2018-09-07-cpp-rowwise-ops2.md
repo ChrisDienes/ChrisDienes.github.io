@@ -8,7 +8,7 @@ tags: [C++, R]
 ---
 
 ### Follow-Up
-A curious colleague pointed out the strongly asserted internet claim that R For Loops and R Apply functions ought to be close peers when it comes to performance. Some example sources: <a href="https://stackoverflow.com/questions/2275896/is-rs-apply-family-more-than-syntactic-sugar">here</a> and <a href="https://support.rstudio.com/hc/en-us/articles/218221837-Profiling-with-RStudio">here</a>. However, my previous <a href="https://chrisdienes.github.io/blog/2018/08/22/cpp-rowwise-ops">post</a>.  constructed an experiment which suggested a huge performance gain using an `apply()` function over `for(i in …)`. I noticed my R For Loop was constructed to mimic the C++ function I had written, and not the R `apply()` function. I re-ran the test as before, but this time including two additional alternatives. The new code and results are given below.  
+A curious colleague pointed out the strongly asserted internet claim that R For Loops and R Apply functions ought to be close peers when it comes to performance. Some example sources: <a href="https://stackoverflow.com/questions/2275896/is-rs-apply-family-more-than-syntactic-sugar">here</a> and <a href="https://support.rstudio.com/hc/en-us/articles/218221837-Profiling-with-RStudio">here</a>. However, my previous <a href="https://chrisdienes.github.io/blog/2018/08/22/cpp-rowwise-ops">post</a> constructed an experiment which suggested a huge performance gain using an `apply()` function over `for(i in …)`. I noticed my R For Loop was constructed to mimic the C++ function I had written, and not the R `apply()` function. I re-ran the test as before, but this time including two additional alternatives. The new code and results are given below.  
 
 ### New Code     
 
