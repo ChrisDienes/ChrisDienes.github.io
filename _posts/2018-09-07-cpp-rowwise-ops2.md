@@ -1,6 +1,6 @@
 ---
 layout: default_post
-title: Follow-up to Using C++ to Speedup Row-wise Operations
+title: (Follow-up) Using C++ to Speedup Row-wise Operations
 date: 2018-09-07
 description: More on the R package Rcpp, code performance, and for loops.  
 image: /images/rcpp_blog2.svg
@@ -37,7 +37,7 @@ vapply_time <- as.numeric(difftime(Sys.time(),stm, units = "secs"))
 
 The below times and time ratios were obtained using Microsoft R Open 3.4.3 (which is the R version tied to the use case). Once again, I only did one run per treatment <a href="https://www.youtube.com/watch?v=bFEoMO0pc7k">because…</a>.  
 
-| Rows                | Cpp Time       |  Apply Time       | Vapply Time  | R Loop (Apply) Time | R Loop (C++) Time | 
+| Rows                |"  Cpp Time  "      |  Apply Time       | Vapply Time  | R Loop (Apply) Time | R Loop (C++) Time | 
 | :-----------------: | :------------: | :---------------: | :----------: | :-----------------: | :---------------: |
 | 6,000               | 0.004          | 0.068             | 0.097        | 2.067               | 3.519             | 
 | 60,000	            | 0.011          | 0.502             | 0.761        | 27.264              | 36.536            |
