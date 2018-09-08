@@ -14,8 +14,8 @@ title: Home
 	 display:inline-block;
 	}
 img.imgpost {
-	width:80%;
-	height:40%;
+	width:90%;
+	height:50%;
 	}
  @media only screen and (max-width: 1200px){
 	 article.post {
@@ -23,10 +23,6 @@ img.imgpost {
 		height:100%;
 	 	float:none;
 	 	display:inline-block;
-	}
-	img.imgpost {
-		width:60%;
-		height:30%;
 	}
   }
 </style>
@@ -51,11 +47,10 @@ img.imgpost {
 	    </p>
         </div>
     </header>
-    <br>
-    <br>
-    <br>	  
-    <span class="image featured"><a href="{{ post.url }}" ><img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="imgpost" style="display: block; margin: 0 auto;" /></a></span>
-   <!-- <footer>
+    <div style = "padding:20px;">	  
+    	<span class="image featured"><a href="{{ post.url }}" ><img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="imgpost" style="display: block; margin: 0 auto;" /></a></span>
+   </div>
+	<!-- <footer>
         <ul class="stats">
             {% for tag in post.tags %}
                 <li><a href="#">{{ tag }}</a></li>
