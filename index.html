@@ -13,11 +13,18 @@ title: Home
 	 float:left;
 	 display:inline-block;
 	}
+img.imgpost {
+	width:80%;
+	height:50%;
+	}
  @media only screen and (max-width: 1200px){
 	 article.post {
 	 	width:100%;
 	 	float:none;
 	 	display:inline-block;
+	}
+	img.imgpost {
+		width:60%;
 	}
   }
 </style>
@@ -45,7 +52,7 @@ title: Home
     <br>
     <br>
     <br>	  
-    <span class="image featured"><a href="{{ post.url }}" ><img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="display: block; margin: 0 auto;width:80%;height:50%;" /></a></span>
+    <span class="image featured"><a href="{{ post.url }}" ><img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="imgpost" style="display: block; margin: 0 auto;" /></a></span>
    <!-- <footer>
         <ul class="stats">
             {% for tag in post.tags %}
