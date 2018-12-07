@@ -12,6 +12,3 @@ I created a gif to humorously start a presentation on monitoring model performan
 <p align="center">
   <img src="https://github.com/ChrisDienes/ModelGoBoom/blob/master/model_go_boom.gif?raw=true" alt="xkcd gif goes here" />
 </p>
-
-If you see this line, please ignore. I'm currently trying to get mathjax to work. $x^2$
-$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}.$$
