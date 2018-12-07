@@ -2,7 +2,7 @@
 layout: default_post
 title: Model Go Boom
 date: 2018-12-07
-description: 
+description: Motivating production modeling using an xkcd-styled animation. 
 image: /images/model_go_boom.gif
 tags: [R, Stickperson]
 ---
