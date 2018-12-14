@@ -53,6 +53,59 @@ The below times and time ratios were obtained using Microsoft R Open 3.4.3 (whic
 | 6,000,000           | 1.0            | 42.4              | 67.0         | DNR                  | DNR                |
 | 60,000,000          | 1.0            | 43.7              | 84.1         | DNR                  | DNR                |
 
+<div style = "text-align:center;"overflow-x:scroll;border-collapse:collapse;width: 100%;">
+     <table align="center">
+      <tr>
+        <th>Rows</th>
+        <th>Cpp<br>Ratio</th>
+        <th>Apply<br>Ratio</th>
+        <th>Vapply<br>Ratio</th>
+        <th>R Loop (Apply)<br>Ratio</th>
+        <th>R Loop (C++)<br>Ratio</th>
+      </tr>
+      <tr>
+        <td>6,000</td>
+        <td>1.0</td>
+        <td>17.0</td>
+        <td>24.2</td>
+        <td>516.0</td>
+        <td>878.2</td>
+      </tr>
+      <tr>
+        <td>60,000</td>
+        <td>1.0</td>
+        <td>45.6</td>
+        <td>69.2</td>
+        <td>2476.5</td>
+        <td>3318.8</td>
+      </tr>
+      <tr>
+        <td>600,000</td>
+        <td>1.0</td>
+        <td>37.6</td>
+        <td>67.6</td>
+        <td>10371.4</td>
+        <td>17209.2</td>
+      </tr>
+      <tr>
+        <td>6,000,000</td>
+        <td>1.0</td>
+        <td>42.4</td>
+        <td>67</td>
+        <td>DNR</td>
+        <td>DNR</td>
+      </tr>
+      <tr>
+        <td>60,000,000</td>
+        <td>1.0</td>
+        <td>43.7</td>
+        <td>84.1</td>
+        <td>DNR</td>
+        <td>DNR</td>
+      </tr>                                                                                         
+     </table>
+</div>
+
 ### Summary
 
 The R For Loop did see a performance improvement when coded more in-line with the `apply()` operation, yet it was still noticeably slower. Interestingly, our C++ and R Apply operations tend to scale almost linearly, but the For Loops became unstable after 60K rows. I'm curious if this generalizes to other people's hardware?  
