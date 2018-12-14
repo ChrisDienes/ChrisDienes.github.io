@@ -37,7 +37,6 @@ vapply_time <- as.numeric(difftime(Sys.time(),stm, units = "secs"))
 
 The below times and time ratios were obtained using Microsoft R Open 3.4.3 (which is the R version tied to the use case). Once again, I only did one run per treatment <a href="https://www.youtube.com/watch?v=bFEoMO0pc7k">because…</a>.  
 
-<div class="mytable">
 | Rows                | Cpp<br>Time     | Apply<br>Time      | Vapply<br>Time  | R Loop (Apply)<br>Time | R Loop (C++)<br>Time | 
 | :-----------------: | :------------: | :---------------: | :----------: | :-----------------: | :---------------: |
 | 6,000               | 0.004          | 0.068             | 0.097        | 2.067               | 3.519             | 
@@ -45,9 +44,6 @@ The below times and time ratios were obtained using Microsoft R Open 3.4.3 (whic
 | 600,000	            | 0.088          | 3.317             | 5.953        | 913.684             | 1516.065          | 
 | 6,000,000           | 0.897          | 38.057            | 60.063       | DNR                 | DNR               |
 | 60,000,000          | 9.946          | 434.300           | 836.376      | DNR                 | DNR               |
-</div>
-
-<div class="mytable">
   
 | Rows             | Cpp<br>Ratio     |  Apply<br>Ratio     | Vapply<br>Ratio | R Loop (Apply)<br>Ratio | R Loop (C++)<br>Ratio | 
 | :-----------------: | :------------: | :---------------: | :----------: | :------------------: | :----------------: |
@@ -56,8 +52,6 @@ The below times and time ratios were obtained using Microsoft R Open 3.4.3 (whic
 | 600,000	            | 1.0            | 37.6              | 67.6         | 10371.4              | 17209.2            | 
 | 6,000,000           | 1.0            | 42.4              | 67.0         | DNR                  | DNR                |
 | 60,000,000          | 1.0            | 43.7              | 84.1         | DNR                  | DNR                |
-
-</div>
 
 ### Summary
 
