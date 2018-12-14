@@ -53,15 +53,15 @@ The below times and time ratios were obtained using Microsoft R Open 3.4.3 (whic
 | 6,000,000           | 1.0            | 42.4              | 67.0         | DNR                  | DNR                |
 | 60,000,000          | 1.0            | 43.7              | 84.1         | DNR                  | DNR                |
 
-<div style = "text-align:center;overflow-x:scroll;">
+<div style = "text-align:center;overflow-x:scroll;overflow-x: hidden;">
      <table style="margin: 0 auto;border-collapse:collapse;width: 100%;text-align:center;">
       <tr>
         <th>Rows</th>
-        <th>Cpp<br>Ratio</th>
-        <th>Apply<br>Ratio</th>
-        <th>Vapply<br>Ratio</th>
-        <th>R Loop (Apply)<br>Ratio</th>
-        <th>R Loop (C++)<br>Ratio</th>
+        <th>Cpp Ratio</th>
+        <th>Apply Ratio</th>
+        <th>Vapply Ratio</th>
+        <th>R Loop (Apply) Ratio</th>
+        <th>R Loop (C++) Ratio</th>
       </tr>
       <tr>
         <td>6,000</td>
