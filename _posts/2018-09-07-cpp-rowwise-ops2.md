@@ -89,14 +89,6 @@ The below times and time ratios were obtained using Microsoft R Open 3.4.3 (whic
       </tr>                                                                                         
      </table>
 </div>
-
-| Rows                | Cpp<br>Time     | Apply<br>Time      | Vapply<br>Time  | R Loop (Apply)<br>Time | R Loop (C++)<br>Time | 
-| :-----------------: | :------------: | :---------------: | :----------: | :-----------------: | :---------------: |
-| 6,000               | 0.004          | 0.068             | 0.097        | 2.067               | 3.519             | 
-| 60,000	            | 0.011          | 0.502             | 0.761        | 27.264              | 36.536            |
-| 600,000	            | 0.088          | 3.317             | 5.953        | 913.684             | 1516.065          | 
-| 6,000,000           | 0.897          | 38.057            | 60.063       | DNR                 | DNR               |
-| 60,000,000          | 9.946          | 434.300           | 836.376      | DNR                 | DNR               |
   
 <div style = "text-align:center;overflow-x:auto;">
      <table style="margin: 0 auto;border-collapse:collapse;width: 100%;text-align:center;">
