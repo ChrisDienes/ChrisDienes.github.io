@@ -91,7 +91,7 @@ The below times and time ratios were obtained using Microsoft R Open 3.4.3 (whic
         <td>6,000,000</td>
         <td>1.0</td>
         <td>42.4</td>
-        <td>67</td>
+        <td>67.0</td>
         <td>DNR</td>
         <td>DNR</td>
       </tr>
