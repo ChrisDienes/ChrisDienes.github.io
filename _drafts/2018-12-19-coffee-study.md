@@ -17,16 +17,16 @@ I observed 43 (21.3%) refill experiences in my 202 coffee visits. According to t
 
 ### The Analysis
 
-Let's jump right into the results. I've placed the technical details at the end for those who aren't adverse to math/stats. Keeping it high level, I created a probabilistic model for estimating the probability a coworker is delinquent when they encounter an empty airpot. The model assumes the number of non-empty cups/arrivals in an airpot is fixed. For example, our airpot would be empty about every 9th arrival if everyone used an 8oz cup. I've summarized the probability estimates for various sizes in the below table to account for potential differences in cup volumes. The estimated delinquency rates decrease as the typical cup size increases. On the extremes, delinquency could be as high as 61.75% if everyone used an 8oz cup, and as low as 0% for 20oz barrels. Since we have a lack of data from other users, perhaps a more reasonable assumption would be somewhere in the middle. This <a href="http://www.e-importz.com/coffee-statistics.php" target="_blank">website </a> seems to suggest the average size is 9oz, so we'll use this scenario throughout the remaining analysis.      
+Let's jump right into the results. I've placed the technical details at the end for those who aren't adverse to math/stats. Keeping it high level, I created a probabilistic model for estimating the probability a coworker is delinquent when they encounter an empty airpot. The model assumes the number of non-empty cups/arrivals in an airpot is fixed. For example, our airpot would be empty about every 9th arrival if everyone used an 8oz cup. I've summarized the probability estimates for various sizes in the below table to account for potential differences in cup volumes. The estimated delinquency rates decrease as the typical cup size increases. On the extremes, estimated delinquency could be as high as 61.75% if everyone used an 8oz cup, and as low as 0% for 20oz barrels. The table also includes 95% (bootstrap) confidence intervals. These intervals appear wide which implies a high degree of uncertainty in our estimation. Since we have a lack of data from other users, perhaps a reasonable assumption for cup size would be somewhere in the middle. This <a href="http://www.e-importz.com/coffee-statistics.php" target="_blank">website</a> seems to suggest the average size is 9oz, so we'll use this scenario throughout the remaining analysis.      
 
-| Cup<br>Size         | Arrivals<br>Till Empty |  Delinquent<br>Percent |
-| :-----------------: | :--------------: | :------------------------: |  
-| 8oz                 | 9                | 61.75                      | 
-| 9oz	                | 8                | 54.87                      |
-| 10oz                | 7                | 45.40                      |
-| 12oz                | 6                | 31.57                      | 
-| 16oz                | 5                | 9.50                       |
-| 20oz                | 4                | 0.00                       | 
+| Cup<br>Size         | Arrivals<br>Till Empty |  Delinquent<br>Percent | 95% CI    |
+| :-----------------: | :--------------: | :------------------------: | :-------- : | 
+| 8oz                 | 9                | 61.75                      |  (36, 76)   |
+| 9oz	                | 8                | 54.87                      |  (25, 71)   |
+| 10oz                | 7                | 45.40                      |  (10, 65)   |
+| 12oz                | 6                | 31.57                      |  (0, 56)    |
+| 16oz                | 5                | 9.50                       |  (0, 41)    |
+| 20oz                | 4                | 0.00                       |  (0, 14)    |
 
 
 The below image displays my refill risk and the delinquency rates when partitioning the data by the days of the week. There's a slight trend which increases as we move from Mondays to Thursdays, and then a steep drop-off on Fridays. Perhaps there are highly delinquent individuals who are commonly out-of-office on Fridays, or maybe the end of the work week brings out the best in us. The slight increase over the first four work days seems strange. Maybe there is moral licensing at play: <em>"I've already refilled once this week, so it's okay to let someone else get this one."</em> 
@@ -35,7 +35,7 @@ The below image displays my refill risk and the delinquency rates when partition
   <img src="/images/coffeeStudy/dayOfWeek.svg" alt = "image should be here" />
 </p>
 
-It's hard to ignore the obvious confounding time of day variable. Presented below is the (smoothed) distribution of my coffee times by hour of day. Obviously, I prefer a cup first thing, followed by a more irregular sampling. The next plot shows my estimated refill risk across time. Three features stand out. The first is a peak in rates between 9am-10am in the morning. It's hard to identify what's really happening. On the one hand, a rush of delinquent employees might arrive during this interval; but on the other, it could simply be a natural time for the airpot to reach its empty state. This identifiability problem seems to limit the pureness in our inferences. Though I will add, whenever I failed to fill my cup completely, I would top it off using one of the either two blends (dark roast or flavored). Several trips I experienced empty airpots for all three blends, with times 9:11am, 9:32am, and 2:04pm. The second interesting feature is the noticeable rise in rates which occur post lunch time. It seems the local coffee drinkers believe in a "cutoff" time; which once past, not refilling is justified as avoiding waste. This "cutoff" time debate appears to become more one-sided as we move further away from twelve of the clock. The last feature to note is the brief time periods where the estimated delinquency rates fall to zero. The model (and data) is suggesting our best guess for these periods is a rate of zero. I think leaving it at that ought to make a few Bayesians twitch.       
+It's hard to ignore the obvious confounding time of day variable. Presented below is the (smoothed) distribution of my coffee times by hour of day. Obviously, I prefer a cup first thing, followed by a more irregular sampling. The next plot shows my estimated refill risk across time. Three features stand out. The first is a peak in rates between 9am-10am in the morning. It's hard to identify what's really happening. On the one hand, a rush of delinquent employees might arrive during this interval; but on the other, it could simply be a natural time for the airpot to reach its empty state. This identifiability problem seems to limit the pureness in our inferences. Though I will add, whenever I failed to fill my cup completely, I would top it off using one of the other two blends (dark roast or flavored). Several trips I experienced empty airpots for all three blends, with times 9:11am, 9:32am, and 2:04pm. The second interesting feature is the noticeable rise in rates which occur post lunch time. It seems the local coffee drinkers believe in a "cutoff" time; which once past, not refilling is justified as avoiding waste. This "cutoff" time debate appears to become more one-sided as we move further away from twelve of the clock. The last feature to note is the brief time periods where the estimated delinquency rates fall to zero. The model (and data) is suggesting our best guess for these periods is a rate of zero. I think leaving it at that ought to make a few Bayesians twitch.       
 
 <p align="center">
   <img src="/images/coffeeStudy/myArrivals.svg" alt = "image should be here" />
@@ -97,8 +97,6 @@ $$m_i = \sum_{z=0}^{100}z\cdot\mbox{Pr}[Z = z | X = i, \rho_t], \quad i = 0,1.$$
 <strong>(M Step)</strong> Update:
 $$\rho_{t+1} = \frac{m_0 n_0 + m_1 n_1}{202 + m_0 n_0 + m_1 n_1}\cdot\frac{1}{1-\pi};$$
 where $n_0$ and $n_1$ are the number of observed non-refills and refills, respectively. Obviously, we could further generalize the provided expressions by substituting $n$ for the observed sample size $202$.
-
-<strong>A Note to Future self:</strong> Perhaps some bootstrap CIs would provide a more rigorous analysis.
 
 ### Code
 
