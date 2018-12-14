@@ -3,7 +3,7 @@ layout: default_post
 title: Coffee, Coworkers, and the EM Algorithm
 date: 2018-12-19
 description: Analysis of a personal coffee consumption data set, with some coworker inferences tossed in.
-image: /images/ccemalgo.svg
+image: /images/coffeeStudy/ccemalgo.svg
 tags: [DIY, R]
 ---
 
@@ -31,32 +31,30 @@ Let's jump right into the results. I've burried the technical details to the las
 
 The below image displays my refill risk and the delinquency rates when partitioning the data by the days of the week. There's a slight trend which increases as we move from Mondays to Thursdays, and then a steep drop-off on Fridays. Perhaps there are highly delinquent individuals who are commonly out-of-office on Fridays, or maybe the end of the work week brings out the best in us. The slight increase over the first four work days seems strange. Maybe there is moral licensing at play: <em>"I've already refilled once this week, so it's okay to let someone else get this one."</em> 
 
-<!--
-<p align="center">
-  <img src="/images/dayOfWeek.svg" alt = "image should be here" />
-</p>
 
--->
+<p align="center">
+  <img src="/images/coffeeStudy/dayOfWeek.svg" alt = "image should be here" />
+</p>
 
 It's hard to ignore the obvious confounding time of day variable. Presented below is the (smoothed) distribution of my coffee times by hour of day. Obviously, I prefer a cup first thing, followed by a more irregular sampling. The next plot shows my estimated refill risk across time. Two features stand out. The first is a peak in rates between 9am-10am in the morning. It's hard to identify what's really happening. On the one hand, a rush of delinquent employees might arrive during this interval; but on the other, it could simply be a natural time for the airpot to reach it's empty state. This identifiability problem seems to limit the pureness in our inferences. Though I will add, whenever I failed to fill my cup completely, I would top it off using one of the either two blends (dark roast or flavored). Several trips I experienced empty airpots for all three blends, with times 9:11am, 9:32am, and 2:04pm. The second interesting feature is the noticeable rise in rates which occur post lunch time. It seems the local coffee drinkers believe in a "cutoff" time; which once past, not refilling is justified as avoiding waste. This "cutoff" time debate appears to become more one-sided as we move futher away from twelve of the clock.        
 
-<!--
+
 <p align="center">
-  <img src="/images/myArrivals.svg" alt = "image should be here" />
+  <img src="/images/coffeeStudy/myArrivals.svg" alt = "image should be here" />
 </p>
 
 <p align="center">
-  <img src="/images/riskByTime.svg" alt = "image should be here" />
+  <img src="/images/coffeeStudy/riskByTime.svg" alt = "image should be here" />
 </p>
--->
+
 
 The last curious finding is presented in the below figure which contains the estimated rates relative to the number of minutes from the nearest half hour. The plot shows our rates increase as we approach the top or bottom of the hour, and then decline as we move past. Nearly all meetings have start times with :00 or :30 endings. At times, it's possible the pressure to be on time outweighs the pressure to refill.         
 
-<!--
+
 <p align="center">
-  <img src="/images/riskByHalfHour.svg" alt = "image should be here" />
+  <img src="/images/coffeeStudy/riskByHalfHour.svg" alt = "image should be here" />
 </p>
--->
+
 
 ### Concluding Thoughts
 
