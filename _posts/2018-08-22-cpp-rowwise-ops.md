@@ -14,6 +14,47 @@ Data analysis code often falls into the ad hoc class: a one-time use which is de
 Below I compare the performance of three different row-wise paradigms: an R `for` loop, an R `apply`, and a C++ `for` loop integrated into R using Rcpp. The row-wise task is to find all row index values which fail the zero/NA check (described above), where our narrow data set has 15 columns and N rows. Here N is varied by factors of 10 from 6K up to 60 million. The number of rows with all zeros or all NAs are both set to 25% of the number of rows N. Note: Other approaches involving column-wise looping, recoding, and summarizing using row sums could also be explored, but the intent of this post is to provide a template for performing row-wise operations and comparing performance of row-wise alternatives.   
 The below table contains the run times (in seconds) from one experiment per setting. Of course we ought to run the experiment multiple times to account for system variability but “ain’t nobody got time for that”. The “DNR” label stands for did not run. 
 
+<div style = "text-align:center;overflow-x:auto;">
+     <table style="margin: 0 auto;border-collapse:collapse;width: 100%;text-align:center;">
+      <tr>
+        <th>Rows</th>
+        <th>Cpp Time</th>
+        <th>Apply Time</th>
+        <th>R Loop Time</th>
+      </tr>
+      <tr>
+        <td>6,000</td>
+        <td>0.003</td>
+        <td>0.054</td>
+        <td>4.285</td>
+      </tr>
+      <tr>
+        <td>60,000</td>
+        <td>0.010</td>
+        <td>0.445</td>
+        <td>41.096</td>
+      </tr>
+      <tr>
+        <td>600,000</td>
+        <td>0.094</td>
+        <td>3.498</td>
+        <td>1752.259</td>
+      </tr>
+      <tr>
+        <td>6,000,000</td>
+        <td>1.136</td>
+        <td>35.517</td>
+        <td>DNR</td>
+      </tr>
+      <tr>
+        <td>60,000,000</td>
+        <td>10.321</td>
+        <td>397.695</td>
+        <td>DNR</td>
+      </tr>                                                                                         
+     </table>
+</div>
+
 | Rows                | Cpp<br>Time       |  Apply<br>Time   | R Loop<br>Time |
 | :-----------------: | :--------------:  | :---------------: | :------------: |
 | 6,000                | 0.003             | 0.054              | 4.285          |
@@ -31,6 +72,47 @@ The below table contains the ratio of run time relative to the Cpp run time. Int
 | 600,000	| 1.0             | 37.2               | 18629.9   |
 | 6,000,000        | 1.0             | 31.3             |  DNR           |
 | 60,000,000      |1.0              | 38.5             | DNR            |
+
+<div style = "text-align:center;overflow-x:auto;">
+     <table style="margin: 0 auto;border-collapse:collapse;width: 100%;text-align:center;">
+      <tr>
+        <th>Rows</th>
+        <th>Cpp Ratio</th>
+        <th>Apply Ratio</th>
+        <th>R Loop Ratio</th>
+      </tr>
+      <tr>
+        <td>6,000</td>
+        <td>1.0</td>
+        <td>18.1</td>
+        <td>1438.7</td>
+      </tr>
+      <tr>
+        <td>60,000</td>
+        <td>1.0</td>
+        <td>44.5</td>
+        <td>4106.8</td>
+      </tr>
+      <tr>
+        <td>600,000</td>
+        <td>1.0</td>
+        <td>37.2</td>
+        <td>18629.9</td>
+      </tr>
+      <tr>
+        <td>6,000,000</td>
+        <td>1.0</td>
+        <td>31.3</td>
+        <td>DNR</td>
+      </tr>
+      <tr>
+        <td>60,000,000</td>
+        <td>1.0</td>
+        <td>38.5</td>
+        <td>DNR</td>
+      </tr>                                                                                         
+     </table>
+</div>
 
 ### Code     
 
