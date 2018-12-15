@@ -100,6 +100,7 @@ Let's denote the probability a random coworker is delinquent when encountering a
 The primary assumption we'll make is the following: my refill (or non-refill) probability is determined by the number of arrivals which encountered an empty (or non-empty) state for the airpot from which we sampled. This could be similarly stated as the probabilities are proportional to the time spent in a given empty/non-empty state for the sampled airpot, where the time between arrivals is some fixed constant. To see the consequences of this assumption consider the following two sequences, where $(n,d,r)$ represents the arrival outcomes non-empty, delinquent, and refilled:
 
 $$\{n,n,n,n,n,n,n,n,r\};$$
+
 $$\{n,n,n,n,n,n,n,n,d,d,d,r\}.$$
 
 Both of the sequences assume our airpot requires a refill on the 9th arrival. In the first sequence our assumption would imply a refill risk of 11% (1 out of 9). This risk jumps to 33% (4 out of 12) under the second sequence due to the increased time spent in an empty state caused by the streak of three delinquent coworkers. 
