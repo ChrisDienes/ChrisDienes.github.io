@@ -4,7 +4,7 @@ title: Coffee, Coworkers, and the EM Algorithm
 date: 2018-12-14
 description: Analysis of a personal coffee consumption data set, with some coworker inferences tossed in.
 image: /images/coffeeStudy/ccemalgo.svg
-tags: [DIY, R]
+tags: [DIY Project, R]
 ---
 
 ### Setup
