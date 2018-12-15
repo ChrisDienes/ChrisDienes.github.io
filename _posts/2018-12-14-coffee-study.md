@@ -98,42 +98,65 @@ It's not entirely clear what portion of my misfortunes are caused by coworker de
 Let's denote the probability a random coworker is delinquent when encountering an empty airpot by $\rho$. It would be interesting to estimate $\rho$ based on the data collected. However, matters are complicated by the fact we only observe my actions and outcomes, and nothing directly about by my coworkers. In the perfect world we would have all the data. Under this setting, we would describe the experiment using a probabilistic model and choose the probability value $\rho$ which maximizes the likelihood of observing the collected data. This classical statistics problem is known as <a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation" target="_blank">maximum likelihood estimation</a> and typically involves some simple calculus. Fortunately, we can still follow this basic outline for our incomplete data set, but we will need to make several assumptions and change the way we optimize for $\rho$.
 
 The primary assumption we'll make is the following: my refill (or non-refill) probability is determined by the number of arrivals which encountered an empty (or non-empty) state for the airpot from which we sampled. This could be similarly stated as the probabilities are proportional to the time spent in a given empty/non-empty state for the sampled airpot, where the time between arrivals is some fixed constant. To see the consequences of this assumption consider the following two sequences, where $(n,d,r)$ represents the arrival outcomes non-empty, delinquent, and refilled:
+<p style="text-align:center">
 $$\{n,n,n,n,n,n,n,n,r\};$$
 $$\{n,n,n,n,n,n,n,n,d,d,d,r\}.$$
+</p>
 Both of the sequences assume our airpot requires a refill on the 9th arrival. In the first sequence our assumption would imply a refill risk of 11% (1 out of 9). This risk jumps to 33% (4 out of 12) under the second sequence due to the increased time spent in an empty state caused by the streak of three delinquent coworkers. 
 
 Note that we don't actually observe the number of delinquencies per airpot in our data set (denote this number by $z$). We only measure the indicator of whether I had a refill ($x = 1$) or non-refill ($x = 0$) arrival. Thus, conditional on the number of delinquencies, our refill outcome follows: 
+<p style="text-align:center">
 $$(X|Z = z) \sim \mbox{Binomial}\left[n = 1, prob = \frac{1 + z}{c + z}\right];$$
+</p>
 where we define $c$ to be the number airpot arrivals until a refill is required. To derive the marginal distribution for the number of delinquencies, first consider the probability of a single delinquency. A delinquency can't occur if I observe an empty state, since by design I'll refill with probability 1. So let's assume my arrivals occur with some small probability $\pi$. For the study results I used $\pi = 0.05$ (or 1 out of 20 cups), and using a larger (smaller) $\pi$ value slightly increases (decreases) our estimates of $\rho$. Hence, the probability of a single delinquency during an empty state is $\tilde{p} = (1 - \pi)*\rho$. Thus, the number of delinquencies prior to the first refill is described by the negative binomial model:
+<p style="text-align:center">
 $$\mbox{Pr}[Z = z] = (1 - \tilde{p})\tilde{p}^z, \quad z \in \{0,1,\ldots\}.$$
+</p>
 If you haven't noticed already, I'm assuming all arrivals (including mine) are independent and the probability of delinquency is constant for the entire coworker population. The constant probability assumption is used to simplify our notation and doesn't have any real effect on the estimation. To see this, try constructing the moment functions for the constant $\rho$ probability model:  
+<p style="text-align:center">
 $$Z \sim \mbox{Binomial}[n = 1, prob = \rho];$$ 
+</p>
 and the following two step sampling model where on average we get probability $\rho$: 
-$$(Z|\phi) \sim \mbox{Binomial}[n = 1, prob = \phi], \quad \mbox{E}[\phi] = \rho.$$ The independence claim may have some influence on the results. In the case of my same day arrivals, on average they were separated by over 3 hours and had a minimum gap of 48 minutes. 
+<p style="text-align:center">
+$$(Z|\phi) \sim \mbox{Binomial}[n = 1, prob = \phi], \quad \mbox{E}[\phi] = \rho.$$
+</p>
+The independence claim may have some influence on the results. In the case of my same day arrivals, on average they were separated by over 3 hours and had a minimum gap of 48 minutes. 
 
 We can now write the full likelihood using our conditional refill and marginal delinquency distributions:
+<p style="text-align:center">
 $$L[\rho;X,Z,\pi,c] = \prod_{i = 1}^{202} \left[ \frac{c - 1}{c + z_i}\right]^{1-x_i}\left[\frac{1+z_i}{c + z_i}\right]^{x_i}\left[1 - (1-\pi)\rho\right]\left[(1-\pi)\rho\right]^{z_i};$$
+</p>
 and the full log-likelihood:
+<p style="text-align:center">
 $$l[\rho;X,Z,\pi,c] = \sum_{i = 1}^{202}\left[h(x_i,z_i,\pi,c) + z_i\log(\rho) + \log(1 - (1-\pi)\rho)\right];$$
+</p>
 where $h(\cdot)$ does not depend on $\rho$. We wish to maximize $l[\rho;X,Z,\pi,c]$ with respect to $\rho$ but we are missing the $z_i$. The solution is to use the iterative procedure known as the <a href="https://en.wikipedia.org/wiki/Expectation-maximization_algorithm" target="_blank">Expectation Maximization Algorithm</a>, or EM Algorithm. The process will go as follows:
 
 <strong>Step 1.</strong> Initialize a probability value $\rho_0$ at iteration $t = 0$.<br>
 <strong>Step 2.</strong> Find the conditional distribution of $(Z|X,\rho_t)$.<br>
 <strong>Step 3.</strong> (Expectation Step) Replace the missing $z_i$ with their current conditional expectations:
+<p style="text-align:center">
 $$Q(\rho|\rho_t) = \mbox{E}_{Z|X,\rho_t}(l[\rho;X,Z,\pi,c]).$$
+</p>  
 <strong>Step 4.</strong> (Maximization Step) Set $\rho_{t+1} = \arg\max_\rho Q(\rho|\rho_t)$.<br> 
 <strong>Step 5.</strong> Repeat Steps 2-4 until convergence is met.<br>
 The above steps ensure we monotonically approach a (local) maximum. Adjusting the initial value in Step 1 can help discover discrepancies between local and global extreme values.     
 
 For our implementation, Step 2 requires numerical approximation of the probabilities:
+<p style="text-align:center">
 $$\mbox{Pr}[Z = z | X = x, \rho_t] = \frac{\mbox{Pr}[X = x, Z = z|\rho_t]}{\sum_{z = 0}^{\infty}\mbox{Pr}[X = x, Z = z|\rho_t]}, \quad x = 0,1.$$
+</p>
 The above probabilities were computed and stored for $z = 0,1,\ldots,100$, then used in the EM steps. 
 
 Focusing only on the terms in $Q(\rho|\rho_t)$ which depend on $\rho$, the EM steps become:<br>
 <strong>(E Step)</strong> Compute:
+<p style="text-align:center">
 $$m_i = \sum_{z=0}^{100}z\cdot\mbox{Pr}[Z = z | X = i, \rho_t], \quad i = 0,1.$$
+</p>
 <strong>(M Step)</strong> Update:
+<p style="text-align:center">
 $$\rho_{t+1} = \frac{m_0 n_0 + m_1 n_1}{202 + m_0 n_0 + m_1 n_1}\cdot\frac{1}{1-\pi};$$
+</p>
 where $n_0$ and $n_1$ are the number of observed non-refills and refills, respectively. Obviously, we could further generalize the provided expressions by substituting $n$ for the observed sample size $202$.
 
 ### Code
