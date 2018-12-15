@@ -19,15 +19,6 @@ I observed 43 (21.3%) refill experiences in my 202 coffee visits. According to t
 
 Let's jump right into the results. I've placed the technical details at the end for those who aren't adverse to math/stats. Keeping it high level, I created a probabilistic model for estimating the probability a coworker is delinquent when they encounter an empty airpot. The model assumes the number of non-empty cups/arrivals in an airpot is fixed. For example, our airpot would be empty about every 9th arrival if everyone used an 8oz cup. I've summarized the probability estimates for various sizes in the below table to account for potential differences in cup volumes. The estimated delinquency rates decrease as the typical cup size increases. On the extremes, estimated delinquency could be as high as 61.75% if everyone used an 8oz cup, and as low as 0% for 20oz barrels. The table also includes 95% (bootstrap) confidence intervals. These intervals appear wide which implies a high degree of uncertainty in our estimation. Since we have a lack of data from other users, perhaps a reasonable assumption for cup size would be somewhere in the middle. This <a href="http://www.e-importz.com/coffee-statistics.php" target="_blank">website</a> seems to suggest the average size is 9oz, so we'll use this scenario throughout the remaining analysis.      
 
-| Cup<br>Size         | Arrivals<br>Till Empty |  Delinquent<br>Percent | 95% CI    |
-| :-----------------: | :--------------: | :------------------------: | :---------: | 
-| 8oz                 | 9                | 61.75                      |  (36, 76)   |
-| 9oz	                | 8                | 54.87                      |  (25, 71)   |
-| 10oz                | 7                | 45.40                      |  (10, 65)   |
-| 12oz                | 6                | 31.57                      |  (0, 56)    |
-| 16oz                | 5                | 9.50                       |  (0, 41)    |
-| 20oz                | 4                | 0.00                       |  (0, 14)    |
-
 <div style = "text-align:center;overflow-x:auto;">
      <table style="margin: 0 auto;border-collapse:collapse;width: 100%;text-align:center;">
       <tr>
@@ -40,7 +31,7 @@ Let's jump right into the results. I've placed the technical details at the end 
         <td>8oz</td>
         <td>9</td>
         <td>61.75</td>
-        <td>(36, 75)</td>
+        <td>(36, 76)</td>
       </tr>
       <tr>
         <td>9oz</td>
