@@ -4,7 +4,7 @@ title: The low-rank hurdle model
 date: 2017-09-08
 description: A new low-rank modeling framework for data with special values.   
 image: /images/low_rank_blog.svg
-tags: [Paper, Research]
+tags: [Paper, Research, Stickperson]
 ---
 
 I recently wrote a paper  entitled <a href="https://arxiv.org/abs/1709.01860" target="_blank">The low-rank hurdle model</a>. Now you may be wondering what's a low-rank hurdle model? If you don't want to read the entire paper, I'll try to provide a simple explanantion below.
