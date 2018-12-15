@@ -55,23 +55,7 @@ The below table contains the run times (in seconds) from one experiment per sett
      </table>
 </div>
 
-| Rows                | Cpp<br>Time       |  Apply<br>Time   | R Loop<br>Time |
-| :-----------------: | :--------------:  | :---------------: | :------------: |
-| 6,000                | 0.003             | 0.054              | 4.285          |
-| 60,000	| 0.010             | 0.445               | 41.096       |
-| 600,000	| 0.094             | 3.498               | 1752.259   |
-| 6,000,000        | 1.136             | 35.517             |  DNR           |
-| 60,000,000      |10.321            | 397.695           | DNR            |
-
 The below table contains the ratio of run time relative to the Cpp run time. Interestingly, Cpp is many times more efficient than the other two methods but is logically constructed in the same way as the R for loop. 
-
-| Rows                | Cpp<br>Ratio       |  Apply<br>Ratio  | R Loop<br>Ratio |
-| :----------------: | :--------------: | :---------------: | :------------: |
-| 6,000                | 1.0             | 18.1              | 1438.7          |
-| 60,000	| 1.0             | 44.5               | 4106.8       |
-| 600,000	| 1.0             | 37.2               | 18629.9   |
-| 6,000,000        | 1.0             | 31.3             |  DNR           |
-| 60,000,000      |1.0              | 38.5             | DNR            |
 
 <div style = "text-align:center;overflow-x:auto;">
      <table style="margin: 0 auto;border-collapse:collapse;width: 100%;text-align:center;">
