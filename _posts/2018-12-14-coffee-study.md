@@ -154,9 +154,9 @@ Focusing only on the terms in $Q(\rho|\rho_t)$ which depend on $\rho$, the EM st
 $$m_i = \sum_{z=0}^{100}z\cdot\mbox{Pr}[Z = z | X = i, \rho_t], \quad i = 0,1.$$
 </p>
 <strong>(M Step)</strong> Update:
-<p style="text-align:center">
+
 $$\rho_{t+1} = \frac{m_0 n_0 + m_1 n_1}{202 + m_0 n_0 + m_1 n_1}\cdot\frac{1}{1-\pi};$$
-</p>
+
 where $n_0$ and $n_1$ are the number of observed non-refills and refills, respectively. Obviously, we could further generalize the provided expressions by substituting $n$ for the observed sample size $202$.
 
 ### Code
