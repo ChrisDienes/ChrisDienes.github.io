@@ -28,6 +28,53 @@ Let's jump right into the results. I've placed the technical details at the end 
 | 16oz                | 5                | 9.50                       |  (0, 41)    |
 | 20oz                | 4                | 0.00                       |  (0, 14)    |
 
+<div style = "text-align:center;overflow-x:auto;">
+     <table style="margin: 0 auto;border-collapse:collapse;width: 100%;text-align:center;">
+      <tr>
+        <th>Cup Size</th>
+        <th>Arrivals Till Empty</th>
+        <th>Delinquent Percent</th>
+        <th>95% CI</th>
+      </tr>
+      <tr>
+        <td>8oz</td>
+        <td>9</td>
+        <td>61.75</td>
+        <td>(36, 75)</td>
+      </tr>
+      <tr>
+        <td>9oz</td>
+        <td>8</td>
+        <td>54.87</td>
+        <td>(25, 71)</td>
+      </tr>
+      <tr>
+        <td>10oz</td>
+        <td>7</td>
+        <td>45.40</td>
+        <td>(10, 65)</td>
+      </tr>
+      <tr>
+        <td>12oz</td>
+        <td>6</td>
+        <td>31.57</td>
+        <td>(0, 56)</td>
+      </tr>
+      <tr>
+        <td>16oz</td>
+        <td>5</td>
+        <td>9.50</td>
+        <td>(0, 41)</td>
+      </tr> 
+      <tr>
+        <td>20oz</td>
+        <td>4</td>
+        <td>0.00</td>
+        <td>(0, 14)</td>
+      </tr> 
+     </table>
+</div>
+
 
 The below image displays my refill risk and the delinquency rates when partitioning the data by the days of the week. There's a slight trend which increases as we move from Mondays to Thursdays, and then a steep drop-off on Fridays. Perhaps there are highly delinquent individuals who are commonly out-of-office on Fridays, or maybe the end of the work week brings out the best in us. The slight increase over the first four work days seems strange. Maybe there is moral licensing at play: <em>"I've already refilled once this week, so it's okay to let someone else get this one."</em> 
 
