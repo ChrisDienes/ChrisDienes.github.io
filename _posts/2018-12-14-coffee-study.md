@@ -139,7 +139,7 @@ where $h(\cdot)$ does not depend on $\rho$. We wish to maximize $l[\rho;X,Z,\pi,
 $$Q(\rho|\rho_t) = \mbox{E}_{Z|X,\rho_t}(l[\rho;X,Z,\pi,c]).$$
  
 <strong>Step 4.</strong> (Maximization Step) Set $\rho_{t+1} = \arg\max_\rho Q(\rho|\rho_t)$.<br> 
-<strong>Step 5.</strong> Repeat Steps 2-4 until convergence is met.<br>
+<strong>Step 5.</strong> Repeat Steps 2-4 until convergence criteria is met.<br>
 The above steps ensure we monotonically approach a (local) maximum. Adjusting the initial value in Step 1 can help discover discrepancies between local and global extreme values.     
 
 For our implementation, Step 2 requires numerical approximation of the probabilities:
